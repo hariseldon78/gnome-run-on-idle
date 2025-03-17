@@ -1,0 +1,13 @@
+[Unit]
+Description=GNOME Idle Monitor Service
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env python3 /opt/gnome_run_on_idle/scripts/gnome_idle_monitor.py
+Restart=always
+RestartSec=5
+WorkingDirectory=/opt/gnome_run_on_idle
+
+[Install]
+WantedBy=multi-user.target
