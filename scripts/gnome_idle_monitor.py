@@ -50,7 +50,7 @@ def run_command(command):
     subprocess.run(shlex.split(command))
 
 
-    def main():
+def main():
     config_file = "config/gnome_idle_monitor.conf"
     config = read_config(config_file)
     battery_idle_time = int(config.get("ON_BATTERY_IDLE_TIME", "300"))
