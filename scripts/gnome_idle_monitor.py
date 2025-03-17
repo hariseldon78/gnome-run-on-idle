@@ -4,6 +4,7 @@ import time
 import os
 import shlex
 
+
 def read_config(config_file):
     config = {}
     with open(config_file) as f:
@@ -13,6 +14,7 @@ def read_config(config_file):
                 key, val = line.split("=", 1)
                 config[key.strip()] = val.strip()
     return config
+
 
 def get_idle_time():
     # Call dbus-send to get the idle time in milliseconds
@@ -29,6 +31,7 @@ def get_idle_time():
                 return 0
     return 0
 
+
 def is_on_power():
     # Check if system is on AC power via /sys/class/power_supply/AC/online
     ac_path = "/sys/class/power_supply/AC/online"
@@ -41,11 +44,13 @@ def is_on_power():
     # Fallback: assume on power if not determinable
     return True
 
+
 def run_command(command):
     print(f"Running command: {command}")
     subprocess.run(shlex.split(command))
 
-def main():
+
+    def main():
     config_file = "config/gnome_idle_monitor.conf"
     config = read_config(config_file)
     battery_idle_time = int(config.get("ON_BATTERY_IDLE_TIME", "300"))
