@@ -32,12 +32,12 @@ def get_idle_time():
     return 0
 
 
-def is_on_power():
-    # Check if system is on AC power via /sys/class/power_supply/AC/online
-    ac_path = "/sys/class/power_supply/AC/online"
-    if os.path.exists(ac_path):
+def is_on_power(config):
+    # Check if system is on AC power via supplied power supply path
+    power_supply_path = config.get("POWER_SUPPLY_PATH", "/sys/class/power_supply/ADP1/online")
+    if os.path.exists(power_supply_path):
         try:
-            with open(ac_path) as f:
+            with open(power_supply_path) as f:
                 return f.read().strip() == "1"
         except Exception:
             pass
@@ -63,7 +63,7 @@ def run_command(command):
     while True:
         idle_ms = get_idle_time()
         idle_seconds = idle_ms / 1000
-        if is_on_power():
+        if is_on_power(config):
             threshold = power_idle_time
             command = power_idle_command
         else:
