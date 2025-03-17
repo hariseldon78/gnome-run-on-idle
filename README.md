@@ -5,7 +5,7 @@ This application monitors GNOME idle time via DBus and executes a command when t
 ## Installation
 
 1. **Configuration File:**
-   - Place the configuration file at: `config/gnome_idle_monitor.conf`.
+   - Place the configuration file at: `/etc/gnome_idle_monitor.conf`.
    - Edit the file as needed. Default settings:
      ```
      ON_BATTERY_IDLE_TIME=300
