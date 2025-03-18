@@ -57,7 +57,7 @@ def main():
     power_idle_time = int(config.get("ON_POWER_IDLE_TIME", "600"))
     battery_idle_command = config.get("ON_BATTERY_IDLE_COMMAND", "echo 'Suspend then hibernate'")
     power_idle_command = config.get("ON_POWER_IDLE_COMMAND", "echo 'Suspend'")
-    poll_interval = 5
+    poll_interval = 60
 
     print("Starting GNOME Idle Monitor...")
     while True:
@@ -74,6 +74,7 @@ def main():
             run_command(command)
 
         time.sleep(poll_interval)
+        print(f"Idle time: {idle_seconds} seconds")
 
 if __name__ == "__main__":
     main()
