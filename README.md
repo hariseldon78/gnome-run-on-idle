@@ -5,7 +5,7 @@ This application monitors GNOME idle time via DBus and executes a command when t
 ## Installation
 
 1. **Configuration File:**
-   - Place the configuration file at: `/etc/gnome_idle_monitor.conf`.
+   - Place the configuration file at: `$HOME/.config/gnome_idle_monitor/gnome_idle_monitor.conf`.
    - Edit the file as needed. Default settings:
      ```
      ON_BATTERY_IDLE_TIME=300
@@ -17,18 +17,18 @@ This application monitors GNOME idle time via DBus and executes a command when t
 
 2. **Systemd Service:**
    - The systemd service file is provided at: `systemd/gnome_idle_monitor.service`.
-   - Copy it to the system's systemd directory:
+   - Copy it to the user's systemd directory:
      ```bash
-     sudo cp systemd/gnome_idle_monitor.service /etc/systemd/system/gnome_idle_monitor.service
+     cp systemd/gnome_idle_monitor.service ~/.config/systemd/user/gnome_idle_monitor.service
      ```
-   - Reload the systemd daemon:
+   - Reload the user systemd daemon:
      ```bash
-     sudo systemctl daemon-reload
+     systemctl --user daemon-reload
      ```
    - Enable and start the service:
      ```bash
-     sudo systemctl enable gnome_idle_monitor.service
-     sudo systemctl start gnome_idle_monitor.service
+     systemctl --user enable gnome_idle_monitor.service
+     systemctl --user start gnome_idle_monitor.service
      ```
 
 3. **Path Considerations:**
