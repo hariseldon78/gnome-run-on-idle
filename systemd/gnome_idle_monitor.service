@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/env python3 /usr/local/bin/gnome_idle_monitor.py
+ExecStart=/usr/bin/env python3 /usr/local/bin/gnome_idle_monitor
 Restart=always
 RestartSec=5
 WorkingDirectory=/tmp

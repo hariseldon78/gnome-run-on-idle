@@ -4,8 +4,8 @@ set -e
 echo "Installing GNOME Idle Monitor..."
 
 # Copy the Python script to /usr/local/bin and make it executable
-sudo cp -f scripts/gnome_idle_monitor.py /usr/local/bin/gnome_idle_monitor
-sudo chmod +x /usr/local/bin/gnome_idle_monitor
+sudo cp -f scripts/gnome_idle_monitor.py /usr/local/bin/gnome_idle_monitor.py
+sudo chmod +x /usr/local/bin/gnome_idle_monitor.py
 
 # Copy the configuration file to the user's config directory
 mkdir -p $HOME/.config/gnome_idle_monitor
