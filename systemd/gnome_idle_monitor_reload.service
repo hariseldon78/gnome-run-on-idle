@@ -1,0 +1,6 @@
+[Unit]
+Description=Reload GNOME Idle Monitor on config change
+
+[Service]
+Type=oneshot
+ExecStart=/bin/systemctl restart gnome_idle_monitor.service

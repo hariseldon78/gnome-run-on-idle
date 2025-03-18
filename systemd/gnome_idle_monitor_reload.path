@@ -1,0 +1,8 @@
+[Unit]
+Description=Monitor configuration file changes for GNOME Idle Monitor reload
+
+[Path]
+PathModified=/etc/gnome_idle_monitor.conf
+
+[Install]
+WantedBy=multi-user.target
