@@ -19,8 +19,8 @@ def read_config(config_file):
 def get_idle_time():
     # Call dbus-send to get the idle time in milliseconds
     result = subprocess.run(
-        ["dbus-send", "--session", "--dest=org.gnome.Mutter.IdleMonitor",
-         "/org/gnome/Mutter/IdleMonitor", "org.gnome.Mutter.IdleMonitor.GetIdletime"],
+        ["dbus-send", "--session", "--print-reply", "--dest=org.gnome.Mutter.IdleMonitor",
+         "/org/gnome/Mutter/IdleMonitor/Core", "org.gnome.Mutter.IdleMonitor.GetIdletime"],
         capture_output=True, text=True
     )
     for line in result.stdout.splitlines():
